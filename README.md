@@ -1,9 +1,9 @@
-# SSB-SC-AM-MODULATOR-AND-DEMODULATOR-USING-SCILAB-T1-M4-ODD
-# SSB-SC-AM MODULATOR AND DEMODULATOR
+# DSB-SC-AM-MODULATOR-AND-DEMODULATOR-USING-SCILAB-T1-M4-ODD
+# DSB-SC-AM MODULATOR AND DEMODULATOR
 
 ## AIM
 
-To write a program to perform SSBSC modulation and demodulation using SCI LAB and study its spectral characteristics.
+To write a program to perform DSBSC modulation and demodulation using SCI LAB and study its spectral characteristics.
 
 ---
 
@@ -28,22 +28,21 @@ To write a program to perform SSBSC modulation and demodulation using SCI LAB an
 
 ### 2. Generate Signals:
 
-* **Message Signal:** The baseband signal that will be modulated.
-* **Carrier Signal:** A high-frequency signal used for modulation.
-* **Analytic Signal:** Constructed using the Hilbert transform to get the in-phase and quadrature components.
+* **Message Signal:** A sinusoidal signal that will be modulated.
+* **Carrier Signal:** A high-frequency sinusoidal signal used for modulation.
 
-### 3. SSBSC Modulation:
+### 3. DSBSC Modulation:
 
-* **Modulated Signal:** Create the SSBSC signal using the in-phase and quadrature components, modulated by the carrier.
+* **Modulated Signal:** Multiply the message signal by the carrier signal to produce the DSBSC signal.
 
-### 4. SSBSC Demodulation:
+### 4. DSBSC Demodulation:
 
-* **Mixing:** Multiply the SSBSC signal with the carrier to retrieve the message signal.
-* **Low-pass Filtering:** Apply a low-pass filter to remove high-frequency components and recover the original message signal.
+* **Multiplication:** Multiply the modulated signal by the carrier signal to get the product of the message signal with itself (i.e., the original message signal plus high-frequency components).
+* **Low-pass Filtering:** Apply a Butterworth low-pass filter to remove the high-frequency components and recover the original message signal.
 
 ### 5. Visualization:
 
-Plot the message signal, carrier signal, SSBSC modulated signal, and the recovered signal after demodulation.
+Plot the message signal, carrier signal, DSBSC modulated signal, and the recovered signal after demodulation.
 
 ---
 
@@ -57,22 +56,54 @@ Plot the message signal, carrier signal, SSBSC modulated signal, and the recover
 * If any Error, correct it in code and execute again.
 * Verify the generated waveform using Tabulation and Model Waveform.
 
+## PROGRAM
+am=6.6;
+
+fm=414;
+
+ac=13.2;
+
+fc=4140;
+
+fs=41400;
+
+t=0:1/fs:3/fm;
+
+em=amcos(23.14fmt);
+
+subplot(3,1,1);
+
+plot(t,em);
+
+ec=accos(23.14fct);
+
+subplot(3,1,2);
+
+plot(t,ec);
+
+eam1=ac*(1+(em/ac)).cos(23.14fct);
+
+eam2=ac*(1-(em/ac)).cos(23.14fct);
+
+edsbsc=eam1-eam2;
+
+subplot(3,1,3);
+
+plot(t,edsbsc);
+
 ---
 
 ## TABULATION
-<img width="1599" height="899" alt="image" src="https://github.com/user-attachments/assets/ee6b092b-2350-4ea0-9df6-e297bcf360b9" />
+<img width="945" height="1600" alt="WhatsApp Image 2026-09-23 at 12 48 09 PM" src="https://github.com/user-attachments/assets/47512fee-f161-44b5-9cda-89abb8943f7c" />
 
 
-## CALCULATION:
+---
 
-<img width="1599" height="899" alt="image" src="https://github.com/user-attachments/assets/b9b18fa7-2963-413e-b21f-329867748153" />
+## OUTPUT GRAPH
+<img width="1600" height="1320" alt="WhatsApp Image 2026-09-23 at 12 48 10 PM" src="https://github.com/user-attachments/assets/e5ba4f92-b3a9-40ea-b3d8-0098ed045cbe" />
 
-## GRAPH:
+Result
 
-<img width="1599" height="899" alt="image" src="https://github.com/user-attachments/assets/da513351-2420-46dc-abf6-efd23745f355" />
+Thus the DSB-SC-AM Modulation and Demodulation is generated.
 
-##RESULT: Thus, the SSB-SC-AM Modulation and Demodulation is experimentally done and the output is verified.
-
-
-
-
+---
